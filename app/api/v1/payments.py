@@ -11,8 +11,9 @@ from app.schemas.journals import (
     PaymentUpdate,
     PaymentResponse,
 )
+from app.auth import get_current_user
 
-router = APIRouter(prefix="/payments", tags=["payments"])
+router = APIRouter(prefix="/payments", tags=["payments"], dependencies=[Depends(get_current_user)])
 
 
 # ==================== PAYMENT ENDPOINTS ====================
@@ -177,8 +178,6 @@ def get_contract_payment_summary(
     - total_overdue: Sum of overdue payments
     - payment_count: Total number of payments
     """
-    from sqlalchemy import func
-
     payments = db.query(Payments).filter(Payments.contract_id == contract_id).all()
 
     if not payments:

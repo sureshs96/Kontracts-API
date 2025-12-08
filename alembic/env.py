@@ -20,7 +20,6 @@ from app.models import (
     Users,
     JournalEntries,
     JournalEntrySetups,
-    ComplianceSchedules,
     Payments,
     Documents,
 )  # noqa: F401

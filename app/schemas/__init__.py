@@ -8,9 +8,6 @@ from .journals import (
     JournalEntrySetupCreate,
     JournalEntrySetupUpdate,
     JournalEntrySetupResponse,
-    ComplianceScheduleCreate,
-    ComplianceScheduleUpdate,
-    ComplianceScheduleResponse,
     PaymentCreate,
     PaymentUpdate,
     PaymentResponse,
@@ -40,10 +37,6 @@ __all__ = [
     "JournalEntrySetupCreate",
     "JournalEntrySetupUpdate",
     "JournalEntrySetupResponse",
-    # Compliance schemas
-    "ComplianceScheduleCreate",
-    "ComplianceScheduleUpdate",
-    "ComplianceScheduleResponse",
     # Payment schemas
     "PaymentCreate",
     "PaymentUpdate",

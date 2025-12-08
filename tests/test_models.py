@@ -19,7 +19,6 @@ from app.models.user import Users
 from app.models.journals import (
     JournalEntries,
     JournalEntrySetups,
-    ComplianceSchedules,
     Payments,
     Documents,
 )
@@ -315,23 +314,6 @@ class TestJournalModels:
         assert doc.id is not None
         assert doc.processing_status == "completed"
         assert doc.uploaded_at is not None
-
-    def test_create_compliance_schedule(self, db_session, sample_lease):
-        """Test creating a compliance schedule"""
-        schedule = ComplianceSchedules(
-            contract_id=str(sample_lease.id),
-            type="ASC842",
-            schedule_data={"periods": 36, "frequency": "monthly"},
-            present_value=Decimal("150000.00"),
-            discount_rate=Decimal("0.05")
-        )
-        db_session.add(schedule)
-        db_session.commit()
-        db_session.refresh(schedule)
-
-        assert schedule.id is not None
-        assert schedule.type == "ASC842"
-        assert schedule.schedule_data["periods"] == 36
 
 
 @pytest.mark.unit

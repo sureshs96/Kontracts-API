@@ -217,7 +217,7 @@ docker-compose up -d
 ```
 - Starts PostgreSQL and FastAPI containers
 - Automatically runs migrations on startup
-- API accessible at http://localhost:8000
+- API accessible at http://localhost:8001
 
 ### Local Development
 ```bash

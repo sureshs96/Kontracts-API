@@ -81,9 +81,9 @@ docker-compose up -d
 ```
 
 4. Access the API:
-- API: http://localhost:8000
-- Interactive docs: http://localhost:8000/docs
-- Alternative docs: http://localhost:8000/redoc
+- API: http://localhost:8001
+- Interactive docs: http://localhost:8001/docs
+- Alternative docs: http://localhost:8001/redoc
 
 ### Local Development
 
@@ -115,7 +115,7 @@ uvicorn app.main:app --reload
 ### 1. Create a Lease
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/leases/" \
+curl -X POST "http://localhost:8001/api/v1/leases/" \
   -H "Content-Type: application/json" \
   -d '{
     "lease_name": "Office Building Lease",
@@ -138,35 +138,35 @@ curl -X POST "http://localhost:8000/api/v1/leases/" \
 ### 2. Generate ASC 842 Schedule
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/schedules/asc842/1"
+curl -X POST "http://localhost:8001/api/v1/schedules/asc842/1"
 ```
 
 ### 3. Generate IFRS 16 Schedule
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/schedules/ifrs16/1"
+curl -X POST "http://localhost:8001/api/v1/schedules/ifrs16/1"
 ```
 
 ### 4. Get Schedule Details
 
 ```bash
 # Get ASC 842 schedule entries
-curl "http://localhost:8000/api/v1/schedules/entries/1/asc842"
+curl "http://localhost:8001/api/v1/schedules/entries/1/asc842"
 
 # Get IFRS 16 schedule entries
-curl "http://localhost:8000/api/v1/schedules/entries/1/ifrs16"
+curl "http://localhost:8001/api/v1/schedules/entries/1/ifrs16"
 ```
 
 ### 5. List All Leases
 
 ```bash
-curl "http://localhost:8000/api/v1/leases/"
+curl "http://localhost:8001/api/v1/leases/"
 ```
 
 ### 6. Create a Payment
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/payments/" \
+curl -X POST "http://localhost:8001/api/v1/payments/" \
   -H "Content-Type: application/json" \
   -d '{
     "contract_id": "lease-001",
@@ -179,13 +179,13 @@ curl -X POST "http://localhost:8000/api/v1/payments/" \
 ### 7. Mark Payment as Paid
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/payments/{payment_id}/mark-paid"
+curl -X POST "http://localhost:8001/api/v1/payments/{payment_id}/mark-paid"
 ```
 
 ### 8. Get Payment Summary for Contract
 
 ```bash
-curl "http://localhost:8000/api/v1/payments/contract/lease-001/summary"
+curl "http://localhost:8001/api/v1/payments/contract/lease-001/summary"
 ```
 
 ## API Endpoints
