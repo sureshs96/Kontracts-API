@@ -49,23 +49,6 @@ class JournalEntrySetups(Base):
     created_at: Mapped[Optional[datetime.datetime]] = mapped_column(DateTime, server_default=text('now()'))
 
 
-class ComplianceSchedules(Base):
-    """Compliance schedules for contract reporting (auto-generated)"""
-    __tablename__ = 'compliance_schedules'
-    __table_args__ = (
-        PrimaryKeyConstraint('id', name='compliance_schedules_pkey'),
-        {'schema': 'kontracts'}
-    )
-
-    id: Mapped[str] = mapped_column(String, primary_key=True, server_default=text('gen_random_uuid()'))
-    contract_id: Mapped[str] = mapped_column(String)
-    type: Mapped[str] = mapped_column(Text)
-    schedule_data: Mapped[dict] = mapped_column(JSONB)
-    present_value: Mapped[Optional[decimal.Decimal]] = mapped_column(Numeric(12, 2))
-    discount_rate: Mapped[Optional[decimal.Decimal]] = mapped_column(Numeric(5, 4))
-    created_at: Mapped[Optional[datetime.datetime]] = mapped_column(DateTime, server_default=text('now()'))
-
-
 class Payments(Base):
     """Payment tracking for contracts and leases"""
     __tablename__ = 'payments'

@@ -74,35 +74,6 @@ class JournalEntrySetupResponse(JournalEntrySetupBase):
         from_attributes = True
 
 
-# Compliance Schedules Schemas
-class ComplianceScheduleBase(BaseModel):
-    contract_id: str = Field(..., description="ID of the associated contract/lease")
-    type: str = Field(..., description="Type of compliance schedule")
-    schedule_data: Dict = Field(..., description="Schedule data in JSON format")
-    present_value: Optional[Decimal] = Field(None, description="Present value calculation")
-    discount_rate: Optional[Decimal] = Field(None, description="Discount rate used")
-
-
-class ComplianceScheduleCreate(ComplianceScheduleBase):
-    pass
-
-
-class ComplianceScheduleUpdate(BaseModel):
-    contract_id: Optional[str] = None
-    type: Optional[str] = None
-    schedule_data: Optional[Dict] = None
-    present_value: Optional[Decimal] = None
-    discount_rate: Optional[Decimal] = None
-
-
-class ComplianceScheduleResponse(ComplianceScheduleBase):
-    id: str
-    created_at: Optional[datetime]
-
-    class Config:
-        from_attributes = True
-
-
 # Payments Schemas
 class PaymentBase(BaseModel):
     contract_id: str = Field(..., description="ID of the associated contract/lease")

@@ -2,7 +2,6 @@ from .lease import Lease, LeaseScheduleEntry, LeaseClassification
 from .schedule import ASC842Schedule, IFRS16Schedule
 from .user import Users
 from .journals import (
-    ComplianceSchedules,
     Documents,
     JournalEntries,
     JournalEntrySetups,
@@ -19,7 +18,6 @@ __all__ = [
     # User models
     "Users",
     # Journal and financial models
-    "ComplianceSchedules",
     "Documents",
     "JournalEntries",
     "JournalEntrySetups",

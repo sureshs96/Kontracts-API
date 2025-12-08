@@ -28,7 +28,6 @@ from app.models.user import Users
 from app.models.journals import (
     JournalEntries,
     JournalEntrySetups,
-    ComplianceSchedules,
     Payments,
     Documents,
 )
@@ -260,7 +259,6 @@ def cleanup_database(db_session: Session):
     db_session.query(IFRS16Schedule).delete()
     db_session.query(JournalEntries).delete()
     db_session.query(JournalEntrySetups).delete()
-    db_session.query(ComplianceSchedules).delete()
     db_session.query(Payments).delete()
     db_session.query(Documents).delete()
     db_session.query(Lease).delete()
